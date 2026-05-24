@@ -41,23 +41,23 @@ async def wait_for_element(page, selector: str, timeout: int = 180) -> bool:
 async def launch_browser() -> Tuple[object, Browser, BrowserContext, Page, Hyperbrowser, object]:
     """
     Запускает облачный браузер Hyperbrowser.ai и создает новый контекст и страницу.
-    При ошибке перебирает API ключи из config.API_STEEL_LIST (max_retries попыток).
+    При ошибке перебирает API ключи из config.API_HYPERBROWSER_LIST (max_retries попыток).
     Возвращает (playwright, browser, context, page, hyperbrowser_client, session).
 
     Raises:
-        RuntimeError: если не удалось подключиться после MAX_STEEL_RETRIES попыток
+        RuntimeError: если не удалось подключиться после MAX_HYPERBROWSER_RETRIES попыток
     """
     # Убедимся, что папка для скачиваний существует
     os.makedirs(config.DOWNLOAD_DIR, exist_ok=True)
 
     # Получить список API ключей
-    api_keys = getattr(config, 'API_STEEL_LIST', [])
+    api_keys = getattr(config, 'API_HYPERBROWSER_LIST', [])
     if not api_keys:
-        raise ValueError("API_STEEL_LIST не найден или пуст в config.py")
+        raise ValueError("API_HYPERBROWSER_LIST не найден или пуст в config.py")
 
     # Получить настройки retry
-    max_retries = getattr(config, 'MAX_STEEL_RETRIES', 10)
-    retry_delay = getattr(config, 'STEEL_RETRY_DELAY', 5.0)
+    max_retries = getattr(config, 'MAX_HYPERBROWSER_RETRIES', 10)
+    retry_delay = getattr(config, 'HYPERBROWSER_RETRY_DELAY', 5.0)
 
     # Перемешать ключи для рандомизации
     random.shuffle(api_keys)
