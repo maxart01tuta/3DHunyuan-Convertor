@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "mcp__sequential-thinking__sequentialthinking",
+      "Bash(python *)",
+      "Bash(move *)"
+    ]
+  },
+  "$version": 3,
+  "mcpServers": {
+    "sequential-thinking": {
+      "httpUrl": "https://remote.mcpservers.org/sequentialthinking/mcp"
+    },
+    "fetch": {
+      "httpUrl": "https://remote.mcpservers.org/fetch/mcp"
+    },
+    "Context7": {
+      "httpUrl": "https://mcp.context7.com/mcp",
+      "headers": {
+        "Authorization": "Bearer ctx7sk-920aec86-2c5e-4454-9076-df6eb131b4b7"
+      }
+    },
+    "Exa": {
+      "httpUrl": "https://mcp.exa.ai/mcp?exaApiKey=1eef8817-5f3b-47d6-86e1-6e0dfad92fd7"
+    }
+  }
+}

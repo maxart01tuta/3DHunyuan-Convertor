@@ -1,0 +1,12 @@
+    - [session_management.md](session_management.md) — Session creation, config, lifecycle
+    - [playwright_connection.md](playwright_connection.md) — Playwright CDP connection patterns
+    - [stealth_and_proxy.md](stealth_and_proxy.md) — Stealth modes & proxy configuration
+    - [hyperagent_guide.md](hyperagent_guide.md) — HyperAgent AI agent guide
+    - [sandbox_operations.md](sandbox_operations.md) — Sandbox file/process operations
+    - [computer_actions.md](computer_actions.md) — Low-level browser actions
+    - [file_upload_large_files.md](file_upload_large_files.md) — Workaround for 50MB CDP file upload limit
+    - [error_handling.md](error_handling.md) — Retry patterns & error handling
+    - [common_qa.md](common_qa.md) — FAQ with practical answers
+    - [troubleshooting.md](troubleshooting.md) — Common errors & fixes
+    - [hunyuan_api.md](hunyuan_api.md) — Tencent 3D Hunyuan project reference
+    - [fix_001_4_slow_selectors_empty_downloads.md](fix_001_4_slow_selectors_empty_downloads.md) — Fix for 3-4 min waits and 0-byte downloads (001_4)

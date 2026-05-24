@@ -1,0 +1,23 @@
+{
+  "mcpServers": {
+    "sequential-thinking": {
+      "type": "http",
+      "url": "https://remote.mcpservers.org/sequentialthinking/mcp"
+    },
+    "fetch": {
+      "type": "http",
+      "url": "https://remote.mcpservers.org/fetch/mcp"
+    },
+    "Context7": {
+      "type": "http",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "Authorization": "Bearer ctx7sk-920aec86-2c5e-4454-9076-df6eb131b4b7"
+      }
+    },
+    "Exa": {
+      "type": "http",
+      "url": "https://mcp.exa.ai/mcp?exaApiKey=1eef8817-5f3b-47d6-86e1-6e0dfad92fd7"
+    }    
+  }
+}

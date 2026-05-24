@@ -1,23 +1,30 @@
+Проблема: Windows Credential Manager подставляет логин от аккаунта **postavshikioptom** вместо **maxart01tuta**. Оба аккаунта используют `github.com`, и credential manager не различает их.
 
-# Инициализация
-cd D:\MAX\PYTHON\VIDEO\MindVideo-Cloud
-git init
+## Решение: указать логин прямо в URL
 
-# Добавить файлы
-git add .
+```powershell
+# Удалить старый remote
+git remote remove origin
 
-# Коммит
-git commit -m "Initial commit"
-
-# Remote через HTTPS
-git remote add origin https://github.com/maxart01tuta/mindvideo-cloud.git
+# Добавить с логином в URL (credential manager будет различать)
+git remote add origin https://maxart01tuta@github.com/maxart01tuta/3DHunyuan-Convertor.git
 
 # Пуш
-git branch -M main
 git push -u origin main
+```
 
+Теперь при `git push` credential manager увидит `maxart01tuta@github.com` как отдельную запись и попросит ввести пароль/токен именно для этого аккаунта.
 
+Если всё равно подставляет старый логин — нужно удалить сохранённые credentials:
 
+```powershell
+# Открыть Credential Manager и удалить github записи
+cmdkey /list
+# Найти git:https://github.com и удалить:
+cmdkey /delete:git:https://github.com
+```
+
+После удаления при следующем `git push` попросит логин/пароль заново.
 
 # ЧЕРЕЗ SSH НЕ НУЖНО, НУ ПУСТЬ БУДЕТ!!
 
