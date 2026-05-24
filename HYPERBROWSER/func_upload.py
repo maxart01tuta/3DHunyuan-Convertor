@@ -4,7 +4,6 @@
 
 import asyncio
 import os
-import subprocess
 import tempfile
 from datetime import datetime
 from config import MAX_TIME, WAIT_TIME, UPLOAD_DIR, input_upload, knopka_obj
@@ -32,9 +31,14 @@ async def compress_glb_draco(input_path: str) -> str:
         '--stats'
     ]
 
-    result = subprocess.run(cmd, capture_output=True, text=True)
-    if result.returncode != 0:
-        raise RuntimeError(f"Draco compression failed: {result.stderr}")
+    proc = await asyncio.create_subprocess_exec(
+        *cmd,
+        stdout=asyncio.subprocess.PIPE,
+        stderr=asyncio.subprocess.PIPE,
+    )
+    stdout, stderr = await proc.communicate()
+    if proc.returncode != 0:
+        raise RuntimeError(f"Draco compression failed: {stderr.decode()}")
 
     if not os.path.exists(compressed_path):
         raise FileNotFoundError(f"Compressed file not created: {compressed_path}")
