@@ -4,10 +4,19 @@
 
 ```powershell
 # Удалить старый remote
+# Обновить remote на новый аккаунт
 git remote remove origin
-
-# Добавить с логином в URL (credential manager будет различать)
 git remote add origin https://maxart01tuta@github.com/maxart01tuta/3DHunyuan-Convertor.git
+ 
+# Добавить все файлы (Download/ и Upload/ исключены .gitignore)
+git add .
+ 
+# Коммит
+git commit -m "Initial commit"
+ 
+# Пуш
+git branch -M main
+git push -u origin main
 
 # Пуш
 git push -u origin main
